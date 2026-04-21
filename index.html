@@ -373,26 +373,77 @@ table td:first-child::after,
   pointer-events:none;
 }
 @media(max-width:1200px){.content{padding:0 24px}.ma-cards-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* ── TABLET (iPad landscape + portrait ~768–1024px) ── */
 @media(max-width:1024px){
-  .content{padding:0 18px}.hero{padding:28px 24px 24px}.hero-title{font-size:34px}
-  .ma-cards-grid{grid-template-columns:repeat(3,1fr)}.stage-cards-grid{grid-template-columns:repeat(3,1fr)}
-  .cards{grid-template-columns:repeat(auto-fit,minmax(100px,1fr))}.sc-number{font-size:44px}
+  .content{padding:0 18px}
+  /* Keep hero single row but compress it */
+  .hero{padding:10px 20px}
+  .hero-inner{gap:12px}
+  .hero-title{font-size:22px;letter-spacing:-.03em}
+  .hero-tagline{font-size:10px;margin-top:1px}
+  /* Shrink nav links so they stay on one row */
+  .hnav-link{font-size:12px;padding:7px 12px}
+  .hnav-search-wrap{min-width:140px;padding:6px 12px}
+  .hnav-search{width:100px;font-size:12px}
+  /* Badge stays but smaller */
+  .hero-badge{padding:6px 12px}
+  .hero-badge-text{font-size:10px;letter-spacing:.05em}
+  /* Sub-hero compact */
+  .sub-hero{padding:8px 20px}
+  .sub-hero-disc{font-size:11px}
+  .sub-hero-date{font-size:11px;padding:4px 10px}
+  /* Content cards */
+  .ma-cards-grid{grid-template-columns:repeat(3,1fr)}
+  .stage-cards-grid{grid-template-columns:repeat(3,1fr)}
+  .cards{grid-template-columns:repeat(auto-fit,minmax(100px,1fr))}
+  .sc-number{font-size:40px}
 }
-@media(max-width:768px){
-  .content{padding:0 14px}.hero{padding:22px 16px 20px}
-  .hero-inner{flex-direction:column;align-items:flex-start;gap:14px}
-  .hero-right{text-align:left;width:100%}.hero-title{font-size:28px}.hero-tagline{font-size:14px}
-  .ma-cards-grid{grid-template-columns:repeat(2,1fr)}.stage-cards-grid{grid-template-columns:repeat(2,1fr)}
-  .cards{grid-template-columns:repeat(3,1fr)}.cval{font-size:24px}.sc-number{font-size:34px}
-  .sc-label{font-size:14px}.tc-val{font-size:20px}.sb{width:100%}.fb{font-size:12px;padding:8px 12px}
-  html{font-size:15px}th{padding:9px 10px;font-size:11px}td{padding:9px 10px;font-size:13px}
-  .stbl th{font-size:11px;padding:9px 10px}.stbl td{font-size:13px;padding:9px 10px}
-  .rp{font-size:11px;padding:3px 8px;min-width:42px}
+
+/* ── MOBILE (phones up to ~767px) ── */
+@media(max-width:767px){
+  .content{padding:0 12px}
+  /* Hero: keep one row, very compact */
+  .hero{padding:8px 14px}
+  .hero-inner{flex-direction:row;align-items:center;justify-content:space-between;gap:8px;flex-wrap:nowrap}
+  .hero-left{flex-shrink:0;min-width:0}
+  .hero-title{font-size:18px;letter-spacing:-.03em;white-space:nowrap}
+  .hero-tagline{display:none}/* hide tagline on small screens to save space */
+  /* Nav: shrink labels to icon-like short text */
+  .hero-nav{padding:4px 6px;gap:2px;border-radius:12px}
+  .hnav-link{font-size:11px;padding:6px 8px;border-radius:10px}
+  .hnav-divider{height:14px;margin:0 1px}
+  .hnav-search-wrap{min-width:0;width:36px;padding:6px 8px;margin-left:2px;overflow:hidden}
+  .hnav-search{width:0;min-width:0;display:none}/* hide text input, keep icon as tap target */
+  /* Badge: hide on mobile — too wide */
+  .hero-right{display:none}
+  /* Sub-hero: stack cleanly */
+  .sub-hero{padding:6px 14px}
+  .sub-hero-inner{flex-direction:column;align-items:flex-start;gap:4px}
+  .sub-hero-disc{font-size:10px;line-height:1.4}
+  .sub-hero-date{font-size:10px;padding:3px 8px}
+  .sub-hero-link{font-size:10px;padding:3px 8px}
+  /* Cards & tables */
+  .ma-cards-grid{grid-template-columns:repeat(2,1fr)}
+  .stage-cards-grid{grid-template-columns:repeat(2,1fr)}
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .cval{font-size:22px}.sc-number{font-size:30px}
+  .sc-label{font-size:13px}.tc-val{font-size:18px}
+  .sb{width:100%}.fb{font-size:11px;padding:7px 10px}
+  html{font-size:14px}
+  th{padding:8px 9px;font-size:11px}td{padding:8px 9px;font-size:12px}
+  .stbl th{font-size:11px;padding:8px 9px}.stbl td{font-size:12px;padding:8px 9px}
+  .rp{font-size:10px;padding:3px 7px;min-width:38px}
 }
-@media(max-width:480px){
-  .hero-title{font-size:22px}.ma-cards-grid{grid-template-columns:repeat(2,1fr)}
-  .stage-cards-grid{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:repeat(2,1fr)}
-  .sc-number{font-size:28px}.cval{font-size:20px}.hero-badge{display:none}html{font-size:14px}
+
+/* ── SMALL PHONES (<400px) ── */
+@media(max-width:400px){
+  .hero-title{font-size:16px}
+  .hnav-link{font-size:10px;padding:5px 6px}
+  .ma-cards-grid{grid-template-columns:repeat(2,1fr)}
+  .stage-cards-grid{grid-template-columns:repeat(2,1fr)}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .sc-number{font-size:24px}.cval{font-size:18px}
 }
 </style>
 </head>
